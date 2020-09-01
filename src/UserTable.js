@@ -10,13 +10,24 @@ const UserTable = (props) => <>
     <thead>
       <tr>
         <th>Name</th>
+        <th>Edit Name</th>
         <th>Email</th>
-        <th>Edit</th>
+        <th>Edit Email</th>
       </tr>
     </thead>
     <tbody>
-      <UserRow userList={props.level1} level="1" userEmailUpdater={props.userEmailUpdater}/>
-      <UserRow userList={props.level2} level="2" userEmailUpdater={props.userEmailUpdater}/>
+      <UserRow 
+        userNameUpdater={props.userNameUpdater}
+        level="1" 
+        userList={props.level1} 
+        userEmailUpdater={props.userEmailUpdater}
+      />
+      <UserRow 
+        userList={props.level2} 
+        userNameUpdater={props.userNameUpdater}
+        userEmailUpdater={props.userEmailUpdater} 
+        level="2"
+      />
     </tbody>
   </table>
   <button onClick={() => {

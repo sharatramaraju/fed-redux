@@ -3,50 +3,58 @@ import './App.css';
 import UserTable from './UserTable';
 
 export default class App extends React.Component {  
-  
   constructor(props) {
     super(props);
 
     this.state = {
       level1: [
-        // {
-        //   name: 'Rod',
-        //   email: 'rod@abc.com'
-        // },
-        // {
-        //   name: 'Dave',
-        //   email: 'dave@def.com'
-        // }
+        {
+          email: 'sharat@g.com',
+          name: 'sharat'
+        }
       ],
-      level2: [
-        // {
-        //   name: 'Bill',
-        //   email: 'bill@abc.com'
-        // },
-        // {
-        //   name: 'Bob',
-        //   email: 'bob@def.com'
-        // }
-      ],
+      level2: [],
       category: "Super Users"
     }
 
     this.updateUserEmail = this.updateUserEmail.bind(this);
+    // this.updateUserName = this.updateUserName.bind(this);
   }
 
-  updateUserEmail(index, newEmailAddress, level) {
+  // updateUserProperty(index, newValue, level, propName) {
+  //   const levelToUpdate = 'level'+level;
+  //   const newLevel = [ ...this.state[levelToUpdate] ];
+  //   newLevel[index][propName] = newValue; 
+ 
+  //   this.setState({
+  //     [levelToUpdate]: newLevel
+  //   });
+  // }
 
-    console.log(index);
-    console.log(newEmailAddress);
-    console.log(level);
-
+  updateUserEmail(index, newValue, level) {
     const levelToUpdate = 'level'+level;
-
     const newLevel = [ ...this.state[levelToUpdate] ];
-    newLevel[index].email = newEmailAddress; 
+    newLevel[index].email = newValue; 
  
     this.setState({
       [levelToUpdate]: newLevel
+    });
+  }
+
+  //updateUserName (index, newValue, level) {
+  updateUserName = (index, newValue, level) => {
+    const levelToUpdate = 'level'+level;
+    const newLevel = [ ...this.state[levelToUpdate] ];
+    newLevel[index].name = newValue;
+ 
+    this.setState({
+      [levelToUpdate]: newLevel
+    });
+  }
+
+  changeCategory = (newCategory) => {
+    this.setState({
+      category: newCategory
     });
   }
 
@@ -66,17 +74,10 @@ export default class App extends React.Component {
     });
   }
 
-  changeCategory = (newCategory) => {
-    this.setState({
-      category: newCategory
-    });
-  }
-
-
   render() {
     return (
       <>
-        <p>
+        <p style={{color: 'red'}}>
           User Category: {this.state.category}
         </p>
         <p>
@@ -94,11 +95,10 @@ export default class App extends React.Component {
               level2={this.state.level2} 
               stateUpdaterFunction={this.changeCategory}
               userEmailUpdater={this.updateUserEmail}
+              userNameUpdater={this.updateUserName}
             /> : 
             <p>no data to display</p>
         }
-
-        <p>basic html</p>
       </>
     );
   }

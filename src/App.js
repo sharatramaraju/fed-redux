@@ -7,29 +7,14 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      level1: [
-        {
-          email: 'sharat@g.com',
-          name: 'sharat'
-        }
-      ],
+      level1: [],
       level2: [],
       category: "Super Users"
     }
 
     this.updateUserEmail = this.updateUserEmail.bind(this);
-    // this.updateUserName = this.updateUserName.bind(this);
+    //this.updateUserName = this.updateUserName.bind(this);
   }
-
-  // updateUserProperty(index, newValue, level, propName) {
-  //   const levelToUpdate = 'level'+level;
-  //   const newLevel = [ ...this.state[levelToUpdate] ];
-  //   newLevel[index][propName] = newValue; 
- 
-  //   this.setState({
-  //     [levelToUpdate]: newLevel
-  //   });
-  // }
 
   updateUserEmail(index, newValue, level) {
     const levelToUpdate = 'level'+level;
@@ -77,7 +62,7 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <p style={{color: 'red'}}>
+        <p>
           User Category: {this.state.category}
         </p>
         <p>

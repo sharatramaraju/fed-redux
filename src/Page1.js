@@ -1,5 +1,6 @@
 import React from 'react';
+import CounterConnector from './connectors/CounterConnector';
 
-const Page1 = () => <div>I am Page 1</div>
+const Page1 = () => <CounterConnector />;
 
 export default Page1;

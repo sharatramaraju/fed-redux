@@ -4,31 +4,32 @@ const outputRows = (userList, level, userEmailUpdater, userNameUpdater) => userL
   <tr key={index}>
     <td>{user.name}</td>
     <td>
-        {/* Controlled Form */}
-        <input
+        {/* this is now a controlled form */}
+        <input 
           type="text" 
           value={user.name}
           onChange={
             function (event) {
               userNameUpdater(
                 index, 
-                event.target.value, //document.getElementById(`nameInput${level}${index}`).value,
+                event.target.value, // document.getElementById(`nameInput${level}${index}`).value,
                 level
               );
             }
           }
-          />
+        />
     </td>
     <td>{user.email}</td>
     <td>
-        <input id={`emailInput${level}${index}`} 
+        <input 
+          id={`emailInput${level}${index}`} 
           type="text" 
-          value={user.email} 
+          value={user.email}
           onChange={
             function (event) {
               userEmailUpdater(
                 index, 
-                event.target.value, //document.getElementById(`nameInput${level}${index}`).value,
+                event.target.value,
                 level
               );
             }
@@ -45,14 +46,6 @@ const UserRow = ({level, userList, userEmailUpdater, userNameUpdater}) => <>
     {
       outputRows(userList, level, userEmailUpdater, userNameUpdater)
     }
-    <tr>
-      <td>
-        {/* <form onSubmit={ function( (event.target) {})}>
-        <input type='text' value='Submit form'/>
-        <input type='submit' value='Submit form'/>
-        </form> */}
-      </td>
-    </tr>
 </>;
 
 export default UserRow;

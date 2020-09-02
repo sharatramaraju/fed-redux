@@ -1,5 +1,6 @@
 import React from 'react';
+import NameConnector from './connectors/NameConnector';
 
-const Page2 = () => <div>I am Page 2</div>
+const Page2 = () => <NameConnector />;
 
 export default Page2;

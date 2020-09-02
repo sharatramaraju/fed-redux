@@ -17,16 +17,16 @@ const UserTable = (props) => <>
     </thead>
     <tbody>
       <UserRow 
-        userNameUpdater={props.userNameUpdater}
-        level="1" 
         userList={props.level1} 
+        level="1" 
         userEmailUpdater={props.userEmailUpdater}
+        userNameUpdater={props.userNameUpdater}
       />
       <UserRow 
         userList={props.level2} 
-        userNameUpdater={props.userNameUpdater}
+        level="2" 
         userEmailUpdater={props.userEmailUpdater} 
-        level="2"
+        userNameUpdater={props.userNameUpdater}
       />
     </tbody>
   </table>
